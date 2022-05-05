@@ -1,0 +1,13 @@
+<p>products-main works!</p>
+<div class="row">
+  <div class="col">
+    <app-product
+      (saveEmit)="onSaveProduct($event)">
+    </app-product>
+  </div>
+  <div class="col mt-5 me-5">
+    <app-products-list
+      [listOfProducts]="listOfProducts">
+    </app-products-list>
+  </div>
+</div>

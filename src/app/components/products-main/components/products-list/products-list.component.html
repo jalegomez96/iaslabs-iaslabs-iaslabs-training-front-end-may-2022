@@ -1,0 +1,21 @@
+<div class="card p-1">
+  <table class="table">
+    <caption>{{ captionText }}</caption>
+    <thead>
+      <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">Type of product</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of listOfProducts, let i=index">
+        <td>{{ product.productId }}</td>
+        <td>{{ product.typeOfProduct }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
