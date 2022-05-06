@@ -1,14 +1,18 @@
 <div class="card p-1">
   <table class="table">
-    <caption>Name of table</caption>
+    <caption>
+      Name of table
+    </caption>
     <thead>
       <tr>
-        <th scope="col">Text colum</th>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Colum</td>
+      <tr *ngFor="let categorie of listOfCategories; let i = index">
+        <td>{{ categorie.id }}</td>
+        <td>{{ categorie.name }}</td>
       </tr>
     </tbody>
   </table>
