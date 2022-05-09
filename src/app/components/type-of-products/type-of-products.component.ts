@@ -28,7 +28,11 @@ export class TypeOfProductsComponent implements OnInit {
   }
 
   onSearchCategories(): Observable<CategoryModel[]> {
+<<<<<<< HEAD
     return this.categoryService.getCategory().pipe(
+=======
+    return this.categoryService.getAllCategory().pipe(
+>>>>>>> fb8204c0c5f3b348ddf9341b83340682c2654a1c
       tap((categories: CategoryModel[]) => {
         this.listOfCategories = [...categories];
       }),
