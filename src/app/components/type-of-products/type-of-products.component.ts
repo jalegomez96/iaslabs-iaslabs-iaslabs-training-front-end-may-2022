@@ -28,11 +28,7 @@ export class TypeOfProductsComponent implements OnInit {
   }
 
   onSearchCategories(): Observable<CategoryModel[]> {
-<<<<<<< HEAD
     return this.categoryService.getCategory().pipe(
-=======
-    return this.categoryService.getAllCategory().pipe(
->>>>>>> fb8204c0c5f3b348ddf9341b83340682c2654a1c
       tap((categories: CategoryModel[]) => {
         this.listOfCategories = [...categories];
       }),
@@ -43,8 +39,14 @@ export class TypeOfProductsComponent implements OnInit {
             message.error400,
             typeMessage.error
           );
-          return throwError(error);
+        } else {
+          this.modalService.showModal(
+            title.search,
+            'unexpected error with services down',
+            typeMessage.error
+          );
         }
+        return throwError(error);
       })
     );
   }
@@ -62,11 +64,19 @@ export class TypeOfProductsComponent implements OnInit {
           return this.onSearchCategories();
         }),
         catchError((error: HttpErrorResponse) => {
+          if (error.status >= 500) {
+            this.modalService.showModal(
+              title.save,
+              'Call 8080808 for tecnichal attention',
+              typeMessage.error
+            );
+          }
           this.modalService.showModal(
             title.save,
-            error.message,
+            message.error,
             typeMessage.error
           );
+
           return throwError(error);
         })
       )
